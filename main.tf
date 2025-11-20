@@ -23,7 +23,7 @@ resource "aws_iam_role_policy_attachment" "lambda_policy_attach" {
 }
 
 resource "aws_lambda_function_patient" "container_lambda" {
-  function_name = "my-container-lambda"
+  function_name = "my-container-lambda-patient"
   package_type  = "Image"
   image_uri     = "539935451710.dkr.ecr.us-west-1.amazonaws.com/patient-service:latest" # Replace with your actual ECR image URI
   role          = aws_iam_role.lambda_exec_role.arn
@@ -31,7 +31,7 @@ resource "aws_lambda_function_patient" "container_lambda" {
   memory_size   = 128
 }
 resource "aws_lambda_function_appointment" "container_lambda" {
-  function_name = "my-container-lambda"
+  function_name = "my-container-lambda-appointment"
   package_type  = "Image"
   image_uri     = "539935451710.dkr.ecr.us-west-1.amazonaws.com/appointment-service:latest" # Replace with your actual ECR image URI
   role          = aws_iam_role.lambda_exec_role.arn
